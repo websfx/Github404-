@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>通过prototype实现replaceAll()方法</title>
+</head>
+<body>
+	<script>
+		String.prototype.replaceAll = function(oStr,nStr) {
+			//用eval()动态执行脚本间接将字符串转换成正则表达式
+			return this.replace(eval('/'+oStr+'/gi'),nStr);
+		};
+
+		var str = "hahaha";
+		console.log(str);
+		console.log(str.replaceAll('a','b'));
+	</script>
+</body>
+</html>

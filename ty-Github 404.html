@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Github 404</title>
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	#contain {
+		height: 370px;
+		position: relative;
+	}
+	#contain img {
+		position: absolute;
+		top:0;
+		left:0;
+		width: 110%;
+		height: 110%;
+	}
+	#wrap {
+		width: 940px;
+		margin: 0 auto;
+		/*background: green;*/
+		position: absolute;
+		top:0;
+		left:50%;
+		margin-left: -470px;
+	}
+	#wrap img {
+		position: absolute;
+	}
+	#error {		
+		
+		top:75px;
+		left:65px;		
+	}
+	#catm {				
+		top:100px;
+		left:355px;
+		z-index: 2;
+	}
+	#cats {			
+		top:300px;
+		left:370px;
+	}
+	#bedm {
+		top: 150px;
+		left:430px;
+		z-index: 1;
+	}
+	#beds {
+		top: 265px;
+		left:430px;
+	}
+	#house1 {
+		top: 70px;		
+		left:480px;
+	}
+	#house2 {
+		top: 115px;		
+		left:850px;
+	}
+</style>
+<body>
+	<div>
+		<div id='contain'>
+			<img id="bg" src="Github404/bg.jpg" alt="background" >
+		</div>
+		<div id='wrap'>
+			<img id ="error" src="Github404/404.png" alt="404">
+			<img id ="catm" src="Github404/cat.png" alt="cat">
+			<img id ="cats" src="Github404/catshadow.png" alt="catshadow">
+			<img id ="bedm"src="Github404/bed.png" alt="bed">
+			<img id ="beds" src="Github404/badshadow.png" alt="badshadow">	
+			<img id ="house1" src="Github404/house1.png" alt="house1">
+			<img id ="house2" src="Github404/house2.png" alt="house2">
+		</div>				
+	</div>
+	<script>
+		var oDiv = document.getElementById('contain');
+		var oError = document.getElementById('error');
+		var oCat = document.getElementById('catm');
+		var oCats = document.getElementById('cats');
+		var oBed = document.getElementById('bedm');
+		var oBeds = document.getElementById('beds');
+		var oHouse1 = document.getElementById('house1');
+		var oHouse2 = document.getElementById('house2');
+		var oBg = document.getElementById('bg');
+		
+		var oCatLeft = oCat.offsetLeft,
+			oCatsLeft = oCats.offsetLeft,
+			oBedLeft = oBed.offsetLeft,
+			oBedsLeft = oBeds.offsetLeft,
+			oHouse1Left = oHouse1.offsetLeft,
+			oHouse2Left = oHouse2.offsetLeft,
+			oErrorLeft = oError.offsetLeft,
+			// oBgLeft = oError.offsetLeft,			
+			// oBgTop = oCat.offsetTop,			
+			oCatTop = oCat.offsetTop,
+			oCatsTop = oCats.offsetTop,
+			oBedTop = oBed.offsetTop,
+			oBedsTop = oBeds.offsetTop,
+			oHouse1Top = oHouse1.offsetTop,
+			oHouse2Top = oHouse2.offsetTop,
+			oErrorTop = oError.offsetTop;
+
+		//获取可视窗口的宽，高
+		var width = document.body.clientWidth,
+			height = document.body.clientHeight;
+
+		//定义各图片在水平和垂直方向上可移动的最大距离
+		var maxX = 30,maxY = 14;
+		//鼠标位置变量
+		var mouseX,mouseY;
+
+		document.onmousemove = function(e) {
+			//获取事件源兼容IE
+			e = e||window.event; 
+			//获取鼠标位置
+			mouseX = e.clientX;
+			mouseY = e.clientY;
+			//计算鼠标活动范围与图片活动范围比例
+			lineX = mouseX/width*maxX;
+			lineY = mouseY/height*maxY;
+
+			oCat.style.left = oCatLeft+(lineX)+'px';
+			oCats.style.left = oCatsLeft+(lineX)+'px';
+			oBed.style.left = oBedLeft+(lineX)+'px';
+			oBeds.style.left = oBedsLeft+(lineX)+'px';
+			oError.style.left = oErrorLeft+(lineX)+'px';
+			oHouse1.style.left = oHouse1Left-(lineX)+'px';
+			oHouse2.style.left = oHouse2Left-(lineX)+'px';
+			oBg.style.left = -(lineX)+'px';
+			
+			oCat.style.top = oCatTop+(lineY)+'px';
+			oCats.style.top = oCatsTop+(lineY)+'px';
+			oBed.style.top = oBedTop+(lineY)+'px';
+			oBeds.style.top = oBedsTop+(lineY)+'px';
+			oError.style.top = oErrorTop+(lineY)+'px';
+			oHouse1.style.top = oHouse1Top-(lineY)+'px';
+			oHouse2.style.top = oHouse2Top-(lineY)+'px';
+			oBg.style.top = -(lineY)+'px';
+		}
+	</script>
+</body>
+</html>
